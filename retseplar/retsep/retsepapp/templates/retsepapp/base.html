@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Retseptlar sayti{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff8f0;
+            margin: 0;
+            color: #333;
+        }
+        header {
+            background: #b7472a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: #8e321e;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        main {
+            max-width: 900px;
+            margin: 25px auto;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ddd;
+        }
+        a {
+            color: #b7472a;
+        }
+        nav a {
+            color: white;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🍲 Mazali retseptlar</h1>
+        <p>Eng mazali taomlarni biz bilan tayyorlang!</p>
+    </header>
+
+    <nav>
+        <a href="{% url 'home' %}">Bosh sahifa</a>
+        <a href="{% url 'recipe_list' %}">Retseptlar</a>
+        <a href="{% url 'category_list' %}">Kategoriyalar</a>
+        <a href="{% url 'ingredient_list' %}">Masalliqlar</a>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2026 Retseptlar sayti</p>
+    </footer>
+</body>
+</html>

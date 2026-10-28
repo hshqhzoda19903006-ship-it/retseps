@@ -1,0 +1,24 @@
+{% extends "retsepapp/base.html" %}
+
+{% block title %}Bosh sahifa{% endblock %}
+
+{% block content %}
+<h2>Retseptlar saytiga xush kelibsiz!</h2>
+<p>O‘zingiz yoqtirgan taom retseptini tanlang.</p>
+
+<h2>Retseptlar</h2>
+
+{% for recipe in recipes %}
+<div class="card">
+    <h3>
+        <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a>
+    </h3>
+    <p>{{ recipe.description|truncatewords:25 }}</p>
+    <p>Tayyorlash vaqti: {{ recipe.cooking_time }} daqiqa</p>
+</div>
+{% empty %}
+<div class="card">
+    <p>Hozircha retseptlar mavjud emas.</p>
+</div>
+{% endfor %}
+{% endblock %}

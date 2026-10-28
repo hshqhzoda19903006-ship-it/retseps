@@ -1,0 +1,36 @@
+
+{% extends "retsepapp/base.html" %}
+
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>{{ recipe.title }}</h2>
+
+    <p>{{ recipe.description }}</p>
+
+    <p>Kategoriya: {{ recipe.category.name }}</p>
+
+    <p>Tayyorlash vaqti: {{ recipe.cooking_time }} daqiqa</p>
+
+    <h3>Masalliqlar</h3>
+    <ul>
+        {% for item in recipe.recipe_ingredients.all %}
+        <li>{{ item.ingredient.name }} — {{ item.quantity }}</li>
+        {% empty %}
+        <li>Masalliqlar hali kiritilmagan.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Tayyorlash bosqichlari</h3>
+    <ol>
+        {% for step in recipe.steps.all %}
+        <li>{{ step.instruction }}</li>
+        {% empty %}
+        <li>Bosqichlar hali kiritilmagan.</li>
+        {% endfor %}
+    </ol>
+</div>
+
+<a href="{% url 'recipe_list' %}">← Barcha retseptlarga qaytish</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+
+{% extends "retsepapp/base.html" %}
+
+{% block title %}Barcha retseptlar{% endblock %}
+
+{% block content %}
+<h2>Barcha retseptlar</h2>
+
+{% for recipe in recipes %}
+<div class="card">
+    <h3>
+        <a href="{% url 'recipe_detail' recipe.pk %}">
+            {{ recipe.title }}
+        </a>
+    </h3>
+    <p>{{ recipe.description }}</p>
+    <p>Kategoriya: {{ recipe.category.name }}</p>
+    <p>Tayyorlash vaqti: {{ recipe.cooking_time }} daqiqa</p>
+</div>
+{% empty %}
+<div class="card">
+    <p>Hozircha retseptlar mavjud emas.</p>
+</div>
+{% endfor %}
+{% endblock %}

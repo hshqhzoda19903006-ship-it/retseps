@@ -1,0 +1,19 @@
+
+{% extends "retsepapp/base.html" %}
+
+{% block title %}Masalliqlar{% endblock %}
+
+{% block content %}
+<h2>Masalliqlar ro‘yxati</h2>
+
+{% for ingredient in ingredients %}
+<div class="card">
+    <p>{{ ingredient.name }}</p>
+</div>
+{% empty %}
+<div class="card">
+    <p>Hozircha masalliqlar mavjud emas.</p>
+</div>
+{% endfor %}
+{% endblock %}
+

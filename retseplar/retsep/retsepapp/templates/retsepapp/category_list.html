@@ -1,0 +1,19 @@
+
+{% extends "retsepapp/base.html" %}
+
+{% block title %}Kategoriyalar{% endblock %}
+
+{% block content %}
+<h2>Taom kategoriyalari</h2>
+
+{% for category in categories %}
+<div class="card">
+    <h3>{{ category.name }}</h3>
+    <p>Retseptlar soni: {{ category.recipes.count }}</p>
+</div>
+{% empty %}
+<div class="card">
+    <p>Hozircha kategoriyalar mavjud emas.</p>
+</div>
+{% endfor %}
+{% endblock %}
